@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                // Send request to Spring Boot application running on localhost:8080 or deployed server
-                const response = await fetch('http://localhost:8080/api/inquiries', {
+                // Send request to the deployed Spring Boot backend on Render
+                const response = await fetch('https://rainz-backend.onrender.com/api/inquiries', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
