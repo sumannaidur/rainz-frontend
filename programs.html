@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Rainz Pre School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(247, 250, 252, 0.9), rgba(247, 250, 252, 0.9)),
+                url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--color-quaternary);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            color: var(--color-text-muted);
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .breadcrumb a {
+            color: var(--color-text-dark);
+        }
+
+        .program-detail-card {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 50px;
+        }
+
+        .program-detail-card:nth-child(even) {
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .program-detail-card:nth-child(even) .pd-content {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .program-detail-card:nth-child(even) .pd-sidebar {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .pd-content {
+            padding: 50px;
+        }
+
+        .pd-sidebar {
+            background-color: var(--color-bg-light);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid var(--color-quaternary);
+        }
+
+        .program-detail-card:nth-child(even) .pd-sidebar {
+            border-left: none;
+            border-right: 1px solid var(--color-tertiary);
+        }
+
+        .pd-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+
+        .pd-age {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: var(--color-primary);
+            color: var(--color-text-dark);
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .pd-desc {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .pd-list {
+            margin-bottom: 30px;
+        }
+
+        .pd-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--color-text-dark);
+        }
+
+        .pd-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--color-quaternary);
+        }
+
+        .pd-meta {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .pd-meta-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pd-meta-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-secondary);
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pd-meta-text h4 {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        .pd-meta-text span {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--color-text-dark);
+        }
+
+        .daycare-banner {
+            background-color: var(--color-tertiary);
+            padding: 60px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 992px) {
+
+            .program-detail-card,
+            .program-detail-card:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .program-detail-card:nth-child(even) .pd-content,
+            .program-detail-card:nth-child(even) .pd-sidebar {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Pre School</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html" class="active">Programs</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Programs</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"
+                    style="font-size: 0.8rem; margin: 0 10px;"></i> Programs
+            </div>
+        </div>
+    </div>
+
+    <main class="container section">
+
+        <!-- Playgroup -->
+        <div class="program-detail-card">
+            <div class="pd-content">
+                <h2 class="pd-title">Playgroup</h2>
+                <div class="pd-age">2 - 3 Years</div>
+                <p class="pd-desc">For many toddlers, Playgroup is their first experience away from home. We ensure this
+                    transition is gentle and comforting. Our thoughtfully crafted environment promotes active
+                    exploration, sensory play, and early social interactions.</p>
+                <h3 style="margin-bottom: 20px;">Key Focus Areas</h3>
+                <ul class="pd-list">
+                    <li>Developing gross & fine motor skills</li>
+                    <li>Enhancing communication and vocabulary</li>
+                    <li>Encouraging independent eating habits</li>
+                    <li>Fostering social skills like sharing and taking turns</li>
+                </ul>
+            </div>
+            <div class="pd-sidebar">
+                <div class="pd-meta">
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-clock"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Timing</h4><span>09:30 AM - 12:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-users"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Ratio</h4><span>5:1</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="admissions.html" class="btn btn-secondary" style="width: 100%;">Enquire For Admission</a>
+            </div>
+        </div>
+
+        <!-- Nursery -->
+        <div class="program-detail-card">
+            <div class="pd-content">
+                <h2 class="pd-title">Nursery</h2>
+                <div class="pd-age" style="background-color: var(--color-secondary); color: white;">3 - 4 Years</div>
+                <p class="pd-desc">Our Nursery curriculum builds on the curiosity developed in Playgroup. We introduce
+                    structured conceptual learning, focusing heavily on hands-on activities, rhyming, storytelling, and
+                    early math concepts.</p>
+                <h3 style="margin-bottom: 20px;">Key Focus Areas</h3>
+                <ul class="pd-list">
+                    <li>Introduction to phonetics and letter sounds</li>
+                    <li>Pre-math concepts (shapes, colors, sorting)</li>
+                    <li>Creative expression through art and music</li>
+                    <li>Building self-confidence and emotional intelligence</li>
+                </ul>
+            </div>
+            <div class="pd-sidebar">
+                <div class="pd-meta">
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-clock"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Timing</h4><span>09:30 AM - 01:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-users"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Ratio</h4><span>6:1</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="admissions.html" class="btn btn-secondary" style="width: 100%;">Enquire For Admission</a>
+            </div>
+        </div>
+
+        <!-- LKG -->
+        <div class="program-detail-card">
+            <div class="pd-content">
+                <h2 class="pd-title">LKG (Lower Kindergarten)</h2>
+                <div class="pd-age" style="background-color: var(--color-tertiary);">4 - 5 Years</div>
+                <p class="pd-desc">In LKG, children take significant leaps in their academic readiness. The focus shifts
+                    towards language fluency, reading readiness, and logical thinking while maintaining our core
+                    play-based methodology.</p>
+                <h3 style="margin-bottom: 20px;">Key Focus Areas</h3>
+                <ul class="pd-list">
+                    <li>Advanced phonics, blending, and early reading</li>
+                    <li>Number concepts, counting, and simple additions</li>
+                    <li>Environmental awareness and basic science concepts</li>
+                    <li>Developing sustained attention spans</li>
+                </ul>
+            </div>
+            <div class="pd-sidebar">
+                <div class="pd-meta">
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-clock"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Timing</h4><span>09:30 AM - 01:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-users"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Ratio</h4><span>8:1</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="admissions.html" class="btn btn-secondary" style="width: 100%;">Enquire For Admission</a>
+            </div>
+        </div>
+
+        <!-- UKG -->
+        <div class="program-detail-card">
+            <div class="pd-content">
+                <h2 class="pd-title">UKG (Upper Kindergarten)</h2>
+                <div class="pd-age" style="background-color: var(--color-quaternary);">5 - 6 Years</div>
+                <p class="pd-desc">Our UKG program acts as a bridge to primary school. We focus heavily on independent
+                    learning, comprehensive reading, and more complex arithmetic, ensuring your child is exceptionally
+                    prepared for Grade 1.</p>
+                <h3 style="margin-bottom: 20px;">Key Focus Areas</h3>
+                <ul class="pd-list">
+                    <li>Fluent reading and basic creative writing</li>
+                    <li>Complex math (subtraction, time, money concepts)</li>
+                    <li>Public speaking and presentation skills</li>
+                    <li>Project-based collaborative learning</li>
+                </ul>
+            </div>
+            <div class="pd-sidebar">
+                <div class="pd-meta">
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-clock"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Timing</h4><span>09:30 AM - 01:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="pd-meta-item">
+                        <div class="pd-meta-icon"><i class="fas fa-users"></i></div>
+                        <div class="pd-meta-text">
+                            <h4>Ratio</h4><span>8:1</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="admissions.html" class="btn btn-secondary" style="width: 100%;">Enquire For Admission</a>
+            </div>
+        </div>
+
+        <!-- Daycare -->
+        <div class="daycare-banner">
+            <h2 style="font-size: 2.5rem; margin-bottom: 15px; color: var(--color-text-dark);">Reliable & Safe Daycare
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--color-text-dark);">For infants (4+ Months) to
+                Early Schoolers. Flexible timings from 08:30 AM to 07:00 PM.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <div style="background: white; padding: 10px 20px; border-radius: 20px; font-weight: bold;"><i
+                        class="fas fa-utensils" style="color: var(--color-primary); margin-right: 10px;"></i> Nutritious
+                    Meals</div>
+                <div style="background: white; padding: 10px 20px; border-radius: 20px; font-weight: bold;"><i
+                        class="fas fa-bed" style="color: var(--color-secondary); margin-right: 10px;"></i> Sleep Areas
+                </div>
+                <div style="background: white; padding: 10px 20px; border-radius: 20px; font-weight: bold;"><i
+                        class="fas fa-camera" style="color: var(--color-quaternary); margin-right: 10px;"></i> Activity
+                    & Play</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="margin-top: 40px;">Contact for Daycare Details</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3><i class="fas fa-sun" style="color: var(--color-primary);"></i> Rainz Pre School</h3>
+                <p>A trusted, premium preschool in Bengaluru dedicated to laying the ultimate foundation for your
+                    child's continuous learning and growth.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Curriculum</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admissions.html">Admission Process</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Vittal Nagar, Kumaraswamy Layout 2nd Stage,
+                            Bengaluru</span></li>
+                    <li><i class="fas fa-phone-alt"></i><span>+91 77606 98004</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">&copy; 2026 Rainz Pre School. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

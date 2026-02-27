@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainz Pre School | Best Preschool in Kumaraswamy Layout, Bengaluru</title>
+    <meta name="description"
+        content="Rainz Pre School is a 4.9★ parent-rated premium preschool and daycare in Vittal Nagar, Kumaraswamy Layout. Admissions open for playgroup, nursery, LKG, and UKG.">
+
+    <!-- SEO keywords -->
+    <meta name="keywords"
+        content="Best preschool in Kumaraswamy Layout, Play school near Vittal Nagar, LKG admission Bangalore, Preschool in South Bangalore">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)),
+                url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--color-text-dark);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--color-text-dark);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .highlights {
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border-bottom: 5px solid var(--color-secondary);
+        }
+
+        .highlight-card:nth-child(2) {
+            border-color: var(--color-primary);
+        }
+
+        .highlight-card:nth-child(3) {
+            border-color: var(--color-quaternary);
+        }
+
+        .highlight-card:nth-child(4) {
+            border-color: var(--color-tertiary);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .highlight-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--color-secondary);
+            margin: 0 auto 15px;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .about-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--color-secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .program-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .program-img.pg {
+            background-image: url('https://images.unsplash.com/photo-1545607383-e18e8590d9ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8dG9kZGxlcnxlbnwwfHx8fDE3MDcxMzMyODF8MA&ixlib=rb-4.0.3&q=80&w=600');
+        }
+
+        .program-img.nus {
+            background-image: url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cHJlc2Nob29sfGVudwwfHx8fDE3MDcxMzczNzd8MA&ixlib=rb-4.0.3&q=80&w=600');
+        }
+
+        .program-img.lkg {
+            background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8a2luZGVyZ2FydGVufGVufDB8fHx8MTcwNzEzNzM2Mnww&ixlib=rb-4.0.3&q=80&w=600');
+        }
+
+        .program-img.ukg {
+            background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTB8fHNjaG9vbCUyMGNoaWxkcmVufGVufDB8fHx8MTcwNzEzNzQxOXww&ixlib=rb-4.0.3&q=80&w=600');
+        }
+
+        .program-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .program-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .bg-t-primary {
+            background-color: rgba(255, 217, 102, 0.2);
+            color: #B38F00;
+        }
+
+        .bg-t-secondary {
+            background-color: rgba(135, 206, 235, 0.2);
+            color: #0077A3;
+        }
+
+        .bg-t-tertiary {
+            background-color: rgba(248, 200, 220, 0.3);
+            color: #C2185B;
+        }
+
+        .bg-t-quaternary {
+            background-color: rgba(200, 230, 201, 0.4);
+            color: #2E7D32;
+        }
+
+        .testimonials {
+            background-color: var(--color-bg-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+            color: var(--color-primary);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .stars {
+            color: #FDCC0D;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+
+        .parent-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .parent-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+
+        .cta-section {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: var(--radius-lg);
+            margin: 40px auto 80px;
+            max-width: 1000px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-section h2 {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+                gap: 15px;
+            }
+
+            .about-preview {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-section {
+                padding: 40px 15px;
+                margin-bottom: 40px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn-lg {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Pre School</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Where Little Minds Begin Their Bright Journey</h1>
+            <p>Rated 4.9★ by parents in Kumaraswamy Layout. A safe, nurturing, and joyful environment for early years.
+            </p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Book a Visit</a>
+                <a href="admissions.html" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights container">
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon" style="color: #FFA500;"><i class="fas fa-star"></i></div>
+                <h3>4.9★ Parent Rated</h3>
+                <p class="text-muted">Trusted by families across Vittal Nagar.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon" style="color: #4CAF50;"><i class="fas fa-shield-alt"></i></div>
+                <h3>Safe & Hygienic</h3>
+                <p class="text-muted">CCTV secured and regularly sanitized campus.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon" style="color: #2196F3;"><i class="fas fa-users"></i></div>
+                <h3>5:1 Ratio</h3>
+                <p class="text-muted">Low student-teacher ratio for personal care.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon" style="color: #E91E63;"><i class="fas fa-shapes"></i></div>
+                <h3>Play-Based Learning</h3>
+                <p class="text-muted">Engaging curriculum for holistic development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section container">
+        <div class="about-preview">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Children learning at Rainz Pre School">
+            </div>
+            <div class="about-content">
+                <h2>Nurturing the Leaders of Tomorrow</h2>
+                <p>Welcome to <strong>Rainz Pre School</strong>, a premier early learning destination located in the
+                    heart of Vittal Nagar, Kumaraswamy Layout. We believe that every child is unique and deserves an
+                    environment that fosters curiosity, creativity, and confidence.</p>
+                <p>Our experienced educators build strong foundations through interactive play, structured learning, and
+                    boundless love. We provide a home away from home where your little ones can thrive emotionally,
+                    socially, and academically.</p>
+                <ul style="margin: 20px 0; padding-left: 20px;">
+                    <li><i class="fas fa-check-circle" style="color: var(--color-quaternary);"></i> Dedicated and caring
+                        staff</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-quaternary);"></i> Engaging daily
+                        activities</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--color-quaternary);"></i> Emphasis on holistic
+                        development</li>
+                </ul>
+                <a href="about.html" class="btn btn-outline">Read Our Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Snapshot -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <p class="section-subtitle">Tailored learning experiences designed for different stages of early childhood
+                development.</p>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img pg"></div>
+                    <div class="program-content">
+                        <span class="program-badge bg-t-primary">2 - 3 Yrs</span>
+                        <h3>Playgroup</h3>
+                        <p class="text-muted" style="margin-bottom: 15px;">Focuses on sensory exploration, social
+                            interaction, and basic motor skills through fun activities.</p>
+                        <a href="programs.html" style="color: var(--color-secondary); font-weight: 700;">Explore Program
+                            <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-img nus"></div>
+                    <div class="program-content">
+                        <span class="program-badge bg-t-secondary">3 - 4 Yrs</span>
+                        <h3>Nursery</h3>
+                        <p class="text-muted" style="margin-bottom: 15px;">Introduction to structured learning, language
+                            development, and emotional regulation.</p>
+                        <a href="programs.html" style="color: var(--color-secondary); font-weight: 700;">Explore Program
+                            <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-img lkg"></div>
+                    <div class="program-content">
+                        <span class="program-badge bg-t-tertiary">4 - 5 Yrs</span>
+                        <h3>LKG</h3>
+                        <p class="text-muted" style="margin-bottom: 15px;">Building foundations in math, reading
+                            readiness, and cognitive reasoning skills.</p>
+                        <a href="programs.html" style="color: var(--color-secondary); font-weight: 700;">Explore Program
+                            <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-img ukg"></div>
+                    <div class="program-content">
+                        <span class="program-badge bg-t-quaternary">5 - 6 Yrs</span>
+                        <h3>UKG</h3>
+                        <p class="text-muted" style="margin-bottom: 15px;">Preparing for primary school with advanced
+                            phonics, numbers, and independent learning.</p>
+                        <a href="programs.html" style="color: var(--color-secondary); font-weight: 700;">Explore Program
+                            <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials container">
+        <h2 class="section-title">What Parents Say</h2>
+        <p class="section-subtitle">Real experiences from families in the Kumaraswamy Layout community.</p>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"My daughter loves going to Rainz! The teachers are incredibly warm, and
+                    I've seen massive improvements in her communication skills."</p>
+                <div class="parent-info">
+                    <div class="parent-avatar" style="background-color: var(--color-primary);">P</div>
+                    <div>
+                        <h4 style="font-family: var(--font-body); font-weight: 700; color: var(--color-text-dark);">
+                            Priya S.</h4>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">LKG Parent</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">"The low student-to-teacher ratio really makes a difference. They give
+                    personal attention to every child. Excellent preschool in this area."</p>
+                <div class="parent-info">
+                    <div class="parent-avatar" style="background-color: var(--color-secondary);">R</div>
+                    <div>
+                        <h4 style="font-family: var(--font-body); font-weight: 700; color: var(--color-text-dark);">
+                            Rahul M.</h4>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Playgroup Parent</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Safety was my biggest concern, but Rainz Pre School put all my worries to
+                    rest. Clean campus, CCTV access, and very professional staff."</p>
+                <div class="parent-info">
+                    <div class="parent-avatar" style="background-color: var(--color-quaternary);">A</div>
+                    <div>
+                        <h4 style="font-family: var(--font-body); font-weight: 700; color: var(--color-text-dark);">
+                            Ananya K.</h4>
+                        <span style="font-size: 0.85rem; color: var(--color-text-light);">Nursery Parent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Setup -->
+    <section class="container">
+        <div class="cta-section">
+            <h2>Admissions Open for 2026–27</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Limited seats available for early
+                registrations. Secure your child's future today.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg"
+                style="font-size: 1.2rem; padding: 15px 40px;">Schedule Campus Visit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3><i class="fas fa-sun" style="color: var(--color-primary);"></i> Rainz Pre School</h3>
+                <p>A trusted, premium preschool in Bengaluru dedicated to laying the ultimate foundation for your
+                    child's continuous learning and growth.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Curriculum</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admissions.html">Admission Process</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="programs.html">Playgroup (2-3 Yrs)</a></li>
+                    <li><a href="programs.html">Nursery (3-4 Yrs)</a></li>
+                    <li><a href="programs.html">LKG (4-5 Yrs)</a></li>
+                    <li><a href="programs.html">UKG (5-6 Yrs)</a></li>
+                    <li><a href="programs.html">Day Care (4+ Months)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Vittal Nagar, Kumaraswamy Layout 2nd Stage, Bengaluru, Karnataka – 560111</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 77606 98004</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>admissions@rainzpreschool.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Sat: 08:30 AM - 07:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                &copy; 2026 Rainz Pre School. All rights reserved. | Designed for Early Education.
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

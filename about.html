@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Rainz Pre School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(247, 250, 252, 0.9), rgba(247, 250, 252, 0.9)),
+                url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--color-tertiary);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            color: var(--color-text-muted);
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .breadcrumb a {
+            color: var(--color-text-dark);
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .mv-card {
+            background-color: var(--color-white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+
+        .mv-card.mission::before {
+            background-color: var(--color-primary);
+        }
+
+        .mv-card.vision::before {
+            background-color: var(--color-secondary);
+        }
+
+        .mv-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .mission .mv-icon {
+            color: var(--color-primary);
+        }
+
+        .vision .mv-icon {
+            color: var(--color-secondary);
+        }
+
+        .philosophy-section {
+            background-color: var(--color-quaternary);
+            padding: 80px 0;
+            border-radius: var(--radius-lg);
+            margin-bottom: 80px;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .phil-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .founder-msg {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+            background-color: var(--color-bg-light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 60px;
+        }
+
+        .founder-img {
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .founder-msg blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--color-tertiary);
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+
+            .mission-vision,
+            .founder-msg {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Pre School</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">About Us</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"
+                    style="font-size: 0.8rem; margin: 0 10px;"></i> About Us
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container section">
+
+        <!-- Mission & Vision -->
+        <div class="mission-vision">
+            <div class="mv-card mission">
+                <i class="fas fa-rocket mv-icon"></i>
+                <h2>Our Mission</h2>
+                <p class="text-muted" style="margin-top: 15px;">To provide a secure, stimulating, and inclusive
+                    environment where young children are empowered to explore, learn, and develop at their own pace. We
+                    strive to cultivate a lifelong love for learning through hands-on experiences.</p>
+            </div>
+
+            <div class="mv-card vision">
+                <i class="fas fa-eye mv-icon"></i>
+                <h2>Our Vision</h2>
+                <p class="text-muted" style="margin-top: 15px;">To be the most trusted early childhood education center
+                    in Kumaraswamy Layout, recognized for nurturing compassionate, confident, and creative individuals
+                    equipped for future success.</p>
+            </div>
+        </div>
+
+        <!-- Founder Message -->
+        <div class="founder-msg">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Director of Rainz Pre School" class="founder-img">
+            <div>
+                <h2 style="color: var(--color-secondary); margin-bottom: 20px;">A Message From The Director</h2>
+                <blockquote>"At Rainz Pre School, we don't just teach children; we partner with parents in shaping the
+                    next generation. Our commitment is to ensure that every child's first step away from home is filled
+                    with joy, safety, and endless discoveries."</blockquote>
+                <h4 style="font-family: var(--font-body); font-weight: 800; color: var(--color-text-dark);">Mrs. Shalini
+                    R.</h4>
+                <p class="text-muted" style="font-size: 0.9rem;">Founder & Director, Rainz Pre School</p>
+            </div>
+        </div>
+
+        <!-- Teaching Philosophy  -->
+        <div class="philosophy-section">
+            <div class="container">
+                <h2 class="section-title">Our Teaching Philosophy</h2>
+                <p class="section-subtitle" style="color: var(--color-text-dark);">We believe learning should be joyful,
+                    experiential, and child-centric.</p>
+
+                <div class="philosophy-grid">
+                    <div class="phil-item">
+                        <i class="fas fa-puzzle-piece"
+                            style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 15px;"></i>
+                        <h3>Play-Based Learning</h3>
+                        <p class="text-muted">Children learn best when they are fully engaged in active, imaginative
+                            play.</p>
+                    </div>
+
+                    <div class="phil-item">
+                        <i class="fas fa-seedling" style="font-size: 2.5rem; color: #4CAF50; margin-bottom: 15px;"></i>
+                        <h3>Holistic Growth</h3>
+                        <p class="text-muted">Balancing emotional, social, physical, and cognitive development in every
+                            activity.</p>
+                    </div>
+
+                    <div class="phil-item">
+                        <i class="fas fa-heart"
+                            style="font-size: 2.5rem; color: var(--color-tertiary); margin-bottom: 15px;"></i>
+                        <h3>Emotional Security</h3>
+                        <p class="text-muted">Fostering a sense of belonging so every child feels secure to express
+                            themselves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Policy -->
+        <h2 class="section-title">Our Safety Commitment</h2>
+        <div
+            style="background: var(--color-white); border: 2px solid var(--color-bg-light); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="margin-bottom: 15px; color: var(--color-secondary);"><i class="fas fa-shield-alt"></i>
+                        Comprehensive Safety Measures</h3>
+                    <p class="text-muted" style="margin-bottom: 15px;">For us, your child's safety is non-negotiable.
+                        Our campus is designed and maintained to the highest safety and hygiene standards.</p>
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #4CAF50; margin-right: 10px;"></i> 24/7 CCTV surveillance across all
+                            premises</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #4CAF50; margin-right: 10px;"></i> Stringent background checks for all
+                            staff</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #4CAF50; margin-right: 10px;"></i> Child-safe furniture with rounded edges
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #4CAF50; margin-right: 10px;"></i> Daily multi-level sanitization routines
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #4CAF50; margin-right: 10px;"></i> Secure pick-up verification protocols
+                        </li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Safe environment" style="border-radius: var(--radius-md);">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3><i class="fas fa-sun" style="color: var(--color-primary);"></i> Rainz Pre School</h3>
+                <p>A trusted, premium preschool in Bengaluru dedicated to laying the ultimate foundation for your
+                    child's continuous learning and growth.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Curriculum</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admissions.html">Admission Process</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Vittal Nagar, Kumaraswamy Layout 2nd Stage,
+                            Bengaluru</span></li>
+                    <li><i class="fas fa-phone-alt"></i><span>+91 77606 98004</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">&copy; 2026 Rainz Pre School. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

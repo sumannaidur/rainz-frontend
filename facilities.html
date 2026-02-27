@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities | Rainz Pre School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(247, 250, 252, 0.9), rgba(247, 250, 252, 0.9)),
+                url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 5px solid #4CAF50;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            color: var(--color-text-muted);
+            font-weight: 600;
+        }
+
+        .breadcrumb a {
+            color: var(--color-text-dark);
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .facility-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .facility-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .facility-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .facility-content {
+            padding: 30px;
+        }
+
+        .facility-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .f-icon {
+            display: inline-flex;
+            width: 35px;
+            height: 35px;
+            background: var(--color-primary);
+            color: #333;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .facility-content p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Images */
+        .f1 {
+            background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .f2 {
+            background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .f3 {
+            background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .f4 {
+            background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .f5 {
+            background-image: url('https://images.unsplash.com/photo-1602052577122-f73b9710baee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .f6 {
+            background-image: url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Pre School</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="facilities.html" class="active">Facilities</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">Campus Facilities</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"
+                    style="font-size: 0.8rem; margin: 0 10px;"></i> Facilities
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container section">
+
+        <div class="section-title">A World Built for Children</div>
+        <p class="section-subtitle">Our campus in Kumaraswamy Layout is meticulously designed with safety, aesthetics,
+            and child psychology in mind.</p>
+
+        <div class="facility-grid">
+
+            <!-- Facility 1 -->
+            <div class="facility-card">
+                <div class="facility-img f1"></div>
+                <div class="facility-content">
+                    <h3><span class="f-icon"><i class="fas fa-laptop-house"></i></span> Smart Classrooms</h3>
+                    <p>Bright, well-ventilated classrooms with child-safe furniture. Equipped with age-appropriate
+                        learning manipulatives and visual aids designed to stimulate cognitive development.</p>
+                </div>
+            </div>
+
+            <!-- Facility 2 -->
+            <div class="facility-card">
+                <div class="facility-img f2"></div>
+                <div class="facility-content">
+                    <h3><span class="f-icon" style="background:#87CEEB;"><i class="fas fa-futbol"></i></span> Outdoor
+                        Play Area</h3>
+                    <p>A secure outdoor play zone featuring slides, sandpits, and open space for gross motor skill
+                        development. Rubberized flooring ensures absolute safety during active play.</p>
+                </div>
+            </div>
+
+            <!-- Facility 3 -->
+            <div class="facility-card">
+                <div class="facility-img f3"></div>
+                <div class="facility-content">
+                    <h3><span class="f-icon" style="background:#F8C8DC;"><i class="fas fa-video"></i></span> CCTV
+                        Surveillance</h3>
+                    <p>Your child's safety is our priority. Our entire campus, including classrooms and play areas, is
+                        monitored continuously with high-definition CCTV cameras.</p>
+                </div>
+            </div>
+
+            <!-- Facility 4 -->
+            <div class="facility-card">
+                <div class="facility-img f4"></div>
+                <div class="facility-content">
+                    <h3><span class="f-icon" style="background:#C8E6C9;"><i class="fas fa-palette"></i></span> Activity
+                        Room</h3>
+                    <p>A dedicated space for art, craft, music, and dance. Helps children express their creativity
+                        freely and discover their unique hidden talents.</p>
+                </div>
+            </div>
+
+            <!-- Facility 5 -->
+            <div class="facility-card">
+                <div class="facility-img f5"></div>
+                <div class="facility-content">
+                    <h3><span class="f-icon" style="background:#FFD966;"><i class="fas fa-book-reader"></i></span> Mini
+                        Library</h3>
+                    <p>A cozy reading corner stocked with hundreds of colorful, age-appropriate picture books to
+                        inculcate reading habits right from early childhood.</p>
+                </div>
+            </div>
+
+            <!-- Facility 6 -->
+            <div class="facility-card">
+                <div class="facility-img f6"></div>
+                <div class="facility-content">
+                    <h3><span class="f-icon" style="background:#87CEEB;"><i class="fas fa-clinic-medical"></i></span>
+                        Hygiene & Wellness</h3>
+                    <p>Strict sanitization protocols, clean and child-sized restrooms, and a dedicated sick bay for any
+                        medical emergencies to keep our little ones safe and healthy.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3><i class="fas fa-sun" style="color: var(--color-primary);"></i> Rainz Pre School</h3>
+                <p>A trusted, premium preschool in Bengaluru dedicated to laying the ultimate foundation for your
+                    child's continuous learning and growth.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Curriculum</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admissions.html">Admission Process</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Vittal Nagar, Kumaraswamy Layout 2nd Stage,
+                            Bengaluru</span></li>
+                    <li><i class="fas fa-phone-alt"></i><span>+91 77606 98004</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">&copy; 2026 Rainz Pre School. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

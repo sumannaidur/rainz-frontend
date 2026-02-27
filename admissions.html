@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Rainz Pre School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(247, 250, 252, 0.9), rgba(247, 250, 252, 0.9)),
+                url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--color-secondary);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            color: var(--color-text-muted);
+            font-weight: 600;
+        }
+
+        .breadcrumb a {
+            color: var(--color-text-dark);
+        }
+
+        .admission-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .process-steps {
+            background-color: var(--color-bg-light);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            color: var(--color-text-dark);
+            margin-bottom: 5px;
+        }
+
+        .step-content p {
+            color: var(--color-text-light);
+        }
+
+        .docs-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            border: 1px solid #E2E8F0;
+        }
+
+        .docs-section h3 {
+            color: var(--color-text-dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .docs-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .docs-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #E2E8F0;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .docs-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--color-quaternary);
+            margin-right: 15px;
+        }
+
+        .inquiry-form-card {
+            background-color: var(--color-white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border-top: 5px solid var(--color-primary);
+        }
+
+        .inquiry-form-card h2 {
+            font-size: 2rem;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #CBD5E0;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.3);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23718096%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px auto;
+        }
+
+        .submit-btn {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .admission-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Pre School</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html" class="active">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">Admissions</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"
+                    style="font-size: 0.8rem; margin: 0 10px;"></i> Admissions
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container section">
+
+        <div class="admission-container">
+
+            <!-- Process & Info -->
+            <div>
+                <h2 style="font-size: 2.2rem; color: var(--color-text-dark); margin-bottom: 20px;">Join the Rainz Family
+                </h2>
+                <p class="text-muted" style="margin-bottom: 40px; font-size: 1.1rem;">We are currently accepting
+                    admissions for the academic year 2026-27. Follow our simple admission process to secure a spot for
+                    your child.</p>
+
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Inquiry</h3>
+                            <p>Fill out the admission inquiry form on this page or call us to express your interest. Our
+                                admissions counselor will get in touch with you.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number"
+                            style="background-color: var(--color-primary); color: var(--color-text-dark);">2</div>
+                        <div class="step-content">
+                            <h3>Campus Visit</h3>
+                            <p>Schedule a visit to our campus in Kumaraswamy Layout. Meet our educators, see our
+                                facilities, and understand our teaching methodology firsthand.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number"
+                            style="background-color: var(--color-quaternary); color: var(--color-text-dark);">3</div>
+                        <div class="step-content">
+                            <h3>Registration & Enrollment</h3>
+                            <p>Complete the admission form, submit the necessary documents, and finalize the fee
+                                structure to complete the enrollment process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h3>Required Documents for Admission</h3>
+                    <ul class="docs-list">
+                        <li>Child's Birth Certificate (Copy)</li>
+                        <li>Aadhar Card of Parents & Child (Copy)</li>
+                        <li>4 Passport-sized photographs of the child</li>
+                        <li>2 Passport-sized photographs of each parent</li>
+                        <li>Immunization / Vaccination record (Copy)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Inquiry Form -->
+            <div>
+                <div class="inquiry-form-card">
+                    <h2>Admission Inquiry Form</h2>
+                    <p class="text-center text-muted" style="margin-bottom: 30px;">Fill out this form and we'll get back
+                        to you within 24 hours.</p>
+
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label for="parentName">Parent / Guardian Name *</label>
+                            <input type="text" id="parentName" class="form-control" placeholder="Enter your full name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="e.g. +91 98765 43210"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="childName">Child's Name *</label>
+                                <input type="text" id="childName" class="form-control" placeholder="Child's full name"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="childAge">Child's Age *</label>
+                                <input type="text" id="childAge" class="form-control"
+                                    placeholder="e.g. 3 years 2 months" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program">Program Interested In *</label>
+                            <select id="program" class="form-control" required>
+                                <option value="" disabled selected>Select a program</option>
+                                <option value="playgroup">Playgroup (2-3 Yrs)</option>
+                                <option value="nursery">Nursery (3-4 Yrs)</option>
+                                <option value="lkg">LKG (4-5 Yrs)</option>
+                                <option value="ukg">UKG (5-6 Yrs)</option>
+                                <option value="daycare">Daycare</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Additional Questions / Message</label>
+                            <textarea id="message" class="form-control" rows="3"
+                                placeholder="Any specific requirements or queries?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit-btn">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3><i class="fas fa-sun" style="color: var(--color-primary);"></i> Rainz Pre School</h3>
+                <p>A trusted, premium preschool in Bengaluru dedicated to laying the ultimate foundation for your
+                    child's continuous learning and growth.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Curriculum</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admissions.html">Admission Process</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Vittal Nagar, Kumaraswamy Layout 2nd Stage,
+                            Bengaluru</span></li>
+                    <li><i class="fas fa-phone-alt"></i><span>+91 77606 98004</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">&copy; 2026 Rainz Pre School. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
