@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Rainz Pre School in Kumaraswamy Layout</title>
+    <!-- SEO and Schema Markup -->
+    <meta name="description"
+        content="Read the latest news, parenting tips, and updates from Rainz Pre School in Kumaraswamy Layout. Stay connected with your child's learning journey.">
+    <meta name="keywords"
+        content="Preschool Blog, Parenting tips Bangalore, Rainz Pre School updates, Kindergarten activities">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Rainz Pre School Blog",
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "Rainz Pre School"
+      }
+    }
+    </script>
+    <style>
+        .blog-hero {
+            background: linear-gradient(rgba(248, 200, 220, 0.8), rgba(248, 200, 220, 0.8)), url('images/hero.jpg') center/cover;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+
+        .blog-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-category {
+            color: var(--color-secondary);
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--color-text-dark);
+            margin-bottom: 10px;
+        }
+
+        .blog-meta {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .blog-text {
+            color: var(--color-text);
+            margin-bottom: 20px;
+            height: 60px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        #loadingBlogs {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Pre School</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="admissions.html" class="active">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="blog-hero">
+        <div class="container">
+            <h1 style="color: var(--color-text-dark); font-family: var(--font-heading); font-size: 3rem;">Our Latest
+                News & Blogs</h1>
+            <p style="color: var(--color-text); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Parenting tips,
+                school updates, and educational insights.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div id="loadingBlogs"><i class="fas fa-spinner fa-spin fa-2x"></i><br>Loading articles...</div>
+        <div class="blog-grid" id="blogContainer"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container" style="text-align: center; color: white;">
+            <h3>Rainz Pre School</h3>
+            <p>Vittal Nagar, Kumaraswamy Layout 2nd Stage, Bengaluru – 560111</p>
+            <p>&copy; 2026 Rainz Pre School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        const API_URL = 'https://rainz-backend.onrender.com/api';
+
+        async function fetchPublicBlogs() {
+            try {
+                const res = await fetch(`${API_URL}/blogs`);
+                const blogs = await res.json();
+                document.getElementById('loadingBlogs').style.display = 'none';
+
+                const container = document.getElementById('blogContainer');
+
+                if (blogs.length === 0) {
+                    container.innerHTML = '<h3 style="text-align:center; width: 100%;">No articles published yet. Check back soon!</h3>';
+                    return;
+                }
+
+                blogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+                container.innerHTML = blogs.map(blog => `
+                    <div class="blog-card">
+                        <img src="${blog.imageUrl}" alt="${blog.title}" class="blog-img" onerror="this.src='https://via.placeholder.com/400x200?text=Rainz+Blog'">
+                        <div class="blog-content">
+                            <h3 class="blog-title">${blog.title}</h3>
+                            <div class="blog-meta">
+                                <span><i class="fas fa-user"></i> ${blog.author}</span>
+                                <span><i class="fas fa-calendar"></i> ${new Date(blog.publishDate).toLocaleDateString()}</span>
+                            </div>
+                            <p class="blog-text">${blog.content}</p>
+                            <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">Read More</a>
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (e) {
+                console.error(e);
+                document.getElementById('loadingBlogs').innerHTML = 'Unable to load blogs right now. Please try again later.';
+            }
+        }
+
+        fetchPublicBlogs();
+    </script>
+</body>
+
+</html>
