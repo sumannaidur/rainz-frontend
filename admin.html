@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Rainz Pre School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--color-bg-light);
+            padding-bottom: 20px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid var(--color-bg-light);
+        }
+
+        th {
+            background-color: var(--color-bg-light);
+            color: var(--color-text-dark);
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .dateCol {
+            font-size: 0.9em;
+            color: var(--color-text-light);
+        }
+
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .badge-playgroup {
+            background: #FFD966;
+            color: #333;
+        }
+
+        .badge-nursery {
+            background: #87CEEB;
+            color: #333;
+        }
+
+        .badge-lkg {
+            background: #F8C8DC;
+            color: #333;
+        }
+
+        .badge-ukg {
+            background: #C8E6C9;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Simple Login Gate -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <h2 style="font-family: var(--font-heading); color: var(--color-primary);"><i class="fas fa-lock"></i> Admin
+                Access</h2>
+            <p>Please enter the admin password</p>
+            <input type="password" id="adminPassword" placeholder="Hint: admin123" />
+            <button class="btn btn-primary" id="loginBtn">Login</button>
+            <p id="loginError" style="color: red; display: none; margin-top: 10px;">Incorrect Password</p>
+        </div>
+    </div>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-sun" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                    Rainz <span>Admin</span>
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html">Back to Website</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container admin-container">
+        <div class="admin-header">
+            <h2><i class="fas fa-users-cog"></i> Admissions Inquiries</h2>
+            <button class="btn btn-outline" id="refreshBtn"><i class="fas fa-sync-alt"></i> Refresh Data</button>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Parent Details</th>
+                        <th>Child Details</th>
+                        <th>Program</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="inquiriesTableBody">
+                    <tr>
+                        <td colspan="5" style="text-align:center;">Loading inquiries... <i
+                                class="fas fa-spinner fa-spin"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Simple client-side auth for MVP
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            const pwd = document.getElementById('adminPassword').value;
+            if (pwd === 'admin123') { // Simple hardcoded password for MVP
+                document.getElementById('loginOverlay').style.display = 'none';
+                fetchInquiries();
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+
+        // Trigger login on Enter key
+        document.getElementById('adminPassword').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.getElementById('loginBtn').click();
+            }
+        });
+
+        document.getElementById('refreshBtn').addEventListener('click', fetchInquiries);
+
+        async function fetchInquiries() {
+            const tbody = document.getElementById('inquiriesTableBody');
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Refreshing... <i class="fas fa-spinner fa-spin"></i></td></tr>';
+
+            try {
+                // Fetch from your live Render deployed backend URL
+                const response = await fetch('https://rainz-backend.onrender.com/api/inquiries');
+                if (!response.ok) throw new Error('Failed to fetch');
+
+                const data = await response.json();
+
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No inquiries found.</td></tr>';
+                    return;
+                }
+
+                // Sort by date newest first
+                data.sort((a, b) => new Date(b.inquiryDate) - new Date(a.inquiryDate));
+
+                tbody.innerHTML = data.map(item => {
+                    const dateObj = new Date(item.inquiryDate);
+                    const formattedDate = dateObj.toLocaleDateString('en-IN') + '<br><span class="dateCol">' + dateObj.toLocaleTimeString('en-IN') + '</span>';
+
+                    let badgeClass = 'badge-playgroup';
+                    if (item.program && item.program.toLowerCase().includes('nursery')) badgeClass = 'badge-nursery';
+                    if (item.program && item.program.toLowerCase().includes('lkg')) badgeClass = 'badge-lkg';
+                    if (item.program && item.program.toLowerCase().includes('ukg')) badgeClass = 'badge-ukg';
+
+                    return `
+                        <tr>
+                            <td>${formattedDate}</td>
+                            <td>
+                                <strong>${item.parentName}</strong><br>
+                                <a href="tel:${item.phone}" style="color: var(--color-secondary); font-weight: bold;"><i class="fas fa-phone"></i> ${item.phone}</a><br>
+                                ${item.email ? `<a href="mailto:${item.email}" style="color: var(--color-text-light);"><i class="fas fa-envelope"></i> ${item.email}</a>` : ''}
+                            </td>
+                            <td>
+                                <strong>${item.childName}</strong><br>
+                                <span class="dateCol">Age: ${item.childAge}</span>
+                            </td>
+                            <td><span class="badge ${badgeClass}">${item.program}</span></td>
+                            <td>${item.message || '<span class="dateCol">No message</span>'}</td>
+                        </tr>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.error(err);
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:red;">Error fetching data. Check connection in console.</td></tr>';
+            }
+        }
+    </script>
+</body>
+
+</html>
